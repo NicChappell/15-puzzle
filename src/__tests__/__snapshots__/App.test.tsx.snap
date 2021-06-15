@@ -5,9 +5,13 @@ exports[`App renders 1`] = `
   <main
     id="app"
   >
-    <p>
-      Hello, world!
-    </p>
+    <div
+      class="game-board"
+    >
+      <p>
+        Game Board
+      </p>
+    </div>
   </main>
 </div>
 `;
