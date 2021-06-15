@@ -4,16 +4,26 @@ import "./Timer.css";
 const Timer = () => {
   // state hooks
   const [elapsedTime, setElapsedTime] = useState(0);
-  console.log("elapsedTime: ", elapsedTime);
 
   // effect hooks
   useEffect(() => {
-    setElapsedTime(999999);
+    // start timer
+    const timer = setInterval(() => {
+      setElapsedTime((elapsedTime) => elapsedTime + 1);
+    }, 1000);
+
+    // cleanup
+    return () => clearInterval(timer);
   }, []);
+
+  // format elapsed time
+  const date = new Date(elapsedTime);
+  date.setSeconds(elapsedTime);
+  const timeString = date.toISOString().substr(11, 8);
 
   return (
     <div className="timer">
-      <p>Timer</p>
+      <p>Elapsed time: {timeString}</p>
     </div>
   );
 };
