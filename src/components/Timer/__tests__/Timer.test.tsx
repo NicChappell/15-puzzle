@@ -1,9 +1,9 @@
 import { render } from "@testing-library/react";
-import GameBoard from "../GameBoard";
+import Timer from "../Timer";
 
-describe("GameBoard", () => {
+describe("Timer", () => {
   it("renders", () => {
-    const { container } = render(<GameBoard />);
+    const { container } = render(<Timer />);
 
     expect(container).toMatchSnapshot();
   });

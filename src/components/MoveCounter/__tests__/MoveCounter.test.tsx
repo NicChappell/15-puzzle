@@ -1,9 +1,9 @@
 import { render } from "@testing-library/react";
-import GameBoard from "../GameBoard";
+import MoveCounter from "../MoveCounter";
 
-describe("GameBoard", () => {
+describe("MoveCounter", () => {
   it("renders", () => {
-    const { container } = render(<GameBoard />);
+    const { container } = render(<MoveCounter />);
 
     expect(container).toMatchSnapshot();
   });
