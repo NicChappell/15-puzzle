@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import "./GameBoard.css";
+import "./Tile.css";
 
-const GameBoard = () => {
+const Tile = () => {
   // state hooks
   const [mrah, setMrah] = useState("");
 
@@ -11,10 +11,10 @@ const GameBoard = () => {
   }, []);
 
   return (
-    <div className="game-board">
-      <p>Game Board</p>
+    <div className="tile">
+      <p>Tile</p>
     </div>
   );
 };
 
-export default GameBoard;
+export default Tile;

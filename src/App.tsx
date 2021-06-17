@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { GameBoard, MoveCounter, Timer } from "./components";
+import { Board, MoveCounter, Timer } from "./components";
 import { Game } from "./game";
 import "./App.css";
 
@@ -7,6 +7,9 @@ const App = () => {
   // state hooks
   const [game, setGame] = useState<Game>();
   console.log("game: ", game);
+  console.log("game.board: ", game?.board);
+  game?.newGame();
+  console.log("game.board: ", game?.board);
 
   // effect hooks
   useEffect(() => {
@@ -24,7 +27,7 @@ const App = () => {
 
   return (
     <main id="app">
-      <GameBoard />
+      <Board />
       <MoveCounter />
       <Timer />
     </main>

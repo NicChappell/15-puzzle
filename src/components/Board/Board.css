@@ -1,7 +1,8 @@
-.game-board {
+.board {
     background-color: coral;
-    height: 100%;
+    height: 100vw;
     max-height: 800px;
     max-width: 800px;
-    width: 100%;
+    position: relative;
+    width: 100vw;
 }

@@ -1,3 +1,3 @@
-export * from "./GameBoard";
+export * from "./Board";
 export * from "./MoveCounter";
 export * from "./Timer";
