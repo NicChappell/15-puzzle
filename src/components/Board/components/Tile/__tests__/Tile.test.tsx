@@ -1,8 +1,10 @@
 import { render } from "@testing-library/react";
-import Tile from "../Tile";
+import Tile, { ITile } from "../Tile";
 
-const startingProps = {
-  tile: 1,
+const startingProps: ITile = {
+  value: 1,
+  x: 0,
+  y: 0,
 };
 
 describe("Tile", () => {
