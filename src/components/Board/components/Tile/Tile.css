@@ -1,10 +1,12 @@
 .tile {
     background-color: cornflowerblue;
+    border: 2px solid black;
+    box-sizing: border-box;
     height: 100%;
     left: 75%;
     max-height: 25%;
     max-width: 25%;
     position: absolute;
-    top: 25%;
+    /* top: 25%; */
     width: 100%;
 }

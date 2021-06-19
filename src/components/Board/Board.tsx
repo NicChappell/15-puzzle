@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import { Tile } from "./components";
 import "./Board.css";
 
-const Board = () => {
+export interface IBoard {
+  board: any;
+}
+
+const Board = ({ board }: IBoard) => {
   // state hooks
   const [mrah, setMrah] = useState("");
 
@@ -11,9 +15,15 @@ const Board = () => {
     setMrah("mrah");
   }, []);
 
+  // flatten game board
+  const tiles = [].concat.apply([], board);
+  console.log("tiles: ", tiles);
+
   return (
     <div className="board">
-      <Tile />
+      {tiles.map((tile, index) => (
+        <Tile key={index} tile={tile} />
+      ))}
     </div>
   );
 };

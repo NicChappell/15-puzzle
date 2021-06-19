@@ -8,7 +8,7 @@ const App = () => {
   const [game, setGame] = useState<Game>();
   console.log("game: ", game);
   console.log("game.board: ", game?.board);
-  game?.newGame();
+  game?.reset();
   console.log("game.board: ", game?.board);
 
   // effect hooks
@@ -16,18 +16,21 @@ const App = () => {
     // instantiate new Game
     const game = new Game();
 
+    // generate new board
+    game.newBoard();
+
+    // update state
+    setGame(game);
+
     game.on("event", () => {
       console.log("triggered!");
     });
     game.eventTest();
-
-    // update state
-    setGame(game);
   }, []);
 
   return (
     <main id="app">
-      <Board />
+      <Board board={game?.board} />
       <MoveCounter />
       <Timer />
     </main>

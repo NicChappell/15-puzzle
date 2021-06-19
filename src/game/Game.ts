@@ -22,10 +22,22 @@ class Game extends EventEmitter {
     this.emit("event");
   };
 
-  newGame = () => {
-    this.board = "mrah";
-    this.moves = 123123123;
-    this.timer = 42432342;
+  newBoard = () => {
+    this.board = [
+      [1, 2, 3, 4],
+      [5, 6, 7, 8],
+      [9, 10, 11, 12],
+      [13, 14, 15, 16],
+    ];
+  };
+
+  reset = () => {
+    this.board = [
+      [1, 2, 3, 4],
+      [5, 6, 7, 8],
+      [9, 10, 11, 12],
+      [13, 14, 15, 16],
+    ];
   };
 
   move = (tile: Tile) => {
@@ -37,12 +49,12 @@ class Game extends EventEmitter {
 
     // compare x axis
     if (tileX === openSpaceX) {
-        // logic to move in open direction
+      // logic to move in open direction
     }
 
     // compare y axis
     if (tileY === openSpaceY) {
-        // logic to move in open direction
+      // logic to move in open direction
     }
   };
 }
