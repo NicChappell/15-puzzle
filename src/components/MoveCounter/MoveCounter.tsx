@@ -13,7 +13,7 @@ const MoveCounter = () => {
 
   return (
     <div className="move-counter">
-      <p>Move Counter</p>
+      <p>Move Counter: {0}</p>
     </div>
   );
 };
