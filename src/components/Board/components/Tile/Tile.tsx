@@ -2,50 +2,66 @@ import { useEffect, useState } from "react";
 import "./Tile.css";
 
 export interface ITile {
-  value: number;
-  x: number;
-  y: number;
+  tile: any;
 }
 
-const Tile = ({ value, x, y }: ITile) => {
-  console.log("value: ", value);
-  console.log("x: ", x);
-  console.log("y: ", y);
+const Tile = ({ tile }: ITile) => {
+  console.log("tile: ", tile);
 
-  // set left property
-  let left = "";
-  switch (x) {
+  let style;
+  switch (tile) {
     case 0:
-      left = "0%";
+      style = { left: "0%", top: "0%" };
       break;
     case 1:
-      left = "25%";
+      style = { left: "25%", top: "0%" };
       break;
     case 2:
-      left = "50%";
+      style = { left: "50%", top: "0%" };
       break;
     case 3:
-      left = "75%";
+      style = { left: "75%", top: "0%" };
+      break;
+    case 4:
+      style = { left: "0%", top: "25%" };
+      break;
+    case 5:
+      style = { left: "25%", top: "25%" };
+      break;
+    case 6:
+      style = { left: "50%", top: "25%" };
+      break;
+    case 7:
+      style = { left: "75%", top: "25%" };
+      break;
+    case 8:
+      style = { left: "0%", top: "50%" };
+      break;
+    case 9:
+      style = { left: "25%", top: "50%" };
+      break;
+    case 10:
+      style = { left: "50%", top: "50%" };
+      break;
+    case 11:
+      style = { left: "75%", top: "50%" };
+      break;
+    case 12:
+      style = { left: "0%", top: "75%" };
+      break;
+    case 13:
+      style = { left: "25%", top: "75%" };
+      break;
+    case 14:
+      style = { left: "50%", top: "75%" };
+      break;
+    case 15:
+      style = { left: "75%", top: "75%" };
+      break;
+    default:
+      // i dunno
       break;
   }
-
-  // set top property
-  let top = "";
-  switch (y) {
-    case 0:
-      top = "0%";
-      break;
-    case 1:
-      top = "25%";
-      break;
-    case 2:
-      top = "50%";
-      break;
-    case 3:
-      top = "75%";
-      break;
-  }
-
   // state hooks
   const [mrah, setMrah] = useState("");
 
@@ -54,13 +70,9 @@ const Tile = ({ value, x, y }: ITile) => {
     setMrah("mrah");
   }, []);
 
-  const handleClick = () => {
-    console.log("mrah");
-  };
-
   return (
-    <div className="tile" onClick={handleClick} style={{ left, top }}>
-      <span>{value}</span>
+    <div className="tile" onClick={() => console.log("mrah")} style={style}>
+      <p>Tile</p>
     </div>
   );
 };

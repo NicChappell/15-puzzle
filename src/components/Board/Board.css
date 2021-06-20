@@ -1,11 +1,8 @@
 .board {
-    align-items: stretch;
-    background-color: pink;
-    display: flex;
-    flex-direction: column;
+    background-color: coral;
     height: 100vw;
-    justify-content: space-evenly;
     max-height: 800px;
     max-width: 800px;
+    position: relative;
     width: 100vw;
 }
