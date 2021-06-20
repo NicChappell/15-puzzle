@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Tile } from "../../../../game";
 import "./Square.css";
 
@@ -13,41 +14,51 @@ const Square = ({ tile }: ISquare) => {
   console.log("x: ", x);
   console.log("y: ", y);
 
-  // set left property
-  let left = "";
-  switch (x) {
-    case 1:
-      left = "0%";
-      break;
-    case 2:
-      left = "25%";
-      break;
-    case 3:
-      left = "50%";
-      break;
-    case 4:
-      left = "75%";
-      break;
-  }
+  // state hooks
+  const [left, setLeft] = useState<string>();
+  const [top, setTop] = useState<string>();
 
-  // set top property
-  let top = "";
-  switch (y) {
-    case 1:
-      top = "0%";
-      break;
-    case 2:
-      top = "25%";
-      break;
-    case 3:
-      top = "50%";
-      break;
-    case 4:
-      top = "75%";
-      break;
-  }
+  // effect hooks
+  useEffect(() => {
+    // set left property
+    switch (x) {
+      case 1:
+        setLeft("0%");
+        break;
+      case 2:
+        setLeft("25%");
+        break;
+      case 3:
+        setLeft("50%");
+        break;
+      case 4:
+        setLeft("75%");
+        break;
+    }
 
-  const handleClick = () => console.log(value);
+    // set top property
+    switch (y) {
+      case 1:
+        setTop("0%");
+        break;
+      case 2:
+        setTop("25%");
+        break;
+      case 3:
+        setTop("50%");
+        break;
+      case 4:
+        setTop("75%");
+        break;
+    }
+  }, []);
+
+  const handleClick = () => {
+    console.log(tile);
+
+    setLeft("75%");
+    setTop("75%");
+  };
 
   return (
     <div className="square" onClick={handleClick} style={{ left, top }}>
