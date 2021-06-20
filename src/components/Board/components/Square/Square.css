@@ -1,12 +1,19 @@
-.tile {
+.square {
+    align-items: center;
     background-color: cornflowerblue;
     border: 2px solid black;
     box-sizing: border-box;
+    display: flex;
     height: 100%;
-    left: 75%;
+    justify-content: center;
     max-height: 25%;
     max-width: 25%;
     position: absolute;
-    /* top: 25%; */
     width: 100%;
+}
+
+.value {
+    font-family: 'Delius Unicase', cursive;
+    font-size: 48px;
+    font-weight: 700;
 }

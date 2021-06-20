@@ -1,36 +1,37 @@
 import { useEffect, useState } from "react";
 import { Board, MoveCounter, Timer } from "./components";
-import { Game } from "./game";
+import { Game, Tile } from "./game";
 import "./App.css";
 
 const App = () => {
   // state hooks
   const [game, setGame] = useState<Game>();
   console.log("game: ", game);
-  console.log("game.board: ", game?.board);
-  game?.reset();
-  console.log("game.board: ", game?.board);
+  const [tiles, setTiles] = useState<Tile[]>([]);
+  console.log("tiles: ", tiles);
 
   // effect hooks
   useEffect(() => {
-    // instantiate new Game
+    // instantiate new Game object
     const game = new Game();
-
-    // generate new board
-    game.newBoard();
 
     // update state
     setGame(game);
-
-    game.on("event", () => {
-      console.log("triggered!");
-    });
-    game.eventTest();
   }, []);
+
+  useEffect(() => {
+    if (game) {
+      // generate new tiles
+      const tiles = game.newGame();
+
+      // update state
+      setTiles(tiles);
+    }
+  }, [game]);
 
   return (
     <main id="app">
-      <Board board={game?.board} />
+      <Board tiles={tiles} />
       <MoveCounter />
       <Timer />
     </main>

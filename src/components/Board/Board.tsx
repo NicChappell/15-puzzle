@@ -1,28 +1,16 @@
-import { useEffect, useState } from "react";
-import { Tile } from "./components";
+import { Square } from "./components";
+import { Tile } from "../../game";
 import "./Board.css";
 
 export interface IBoard {
-  board: any;
+  tiles: Tile[];
 }
 
-const Board = ({ board }: IBoard) => {
-  // state hooks
-  const [mrah, setMrah] = useState("");
-
-  // effect hooks
-  useEffect(() => {
-    setMrah("mrah");
-  }, []);
-
-  // flatten game board
-  const tiles = [].concat.apply([], board);
-  console.log("tiles: ", tiles);
-
+const Board = ({ tiles }: IBoard) => {
   return (
     <div className="board">
       {tiles.map((tile, index) => (
-        <Tile key={index} tile={tile} />
+        <Square key={index} tile={tile} />
       ))}
     </div>
   );

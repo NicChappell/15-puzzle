@@ -1,11 +1,11 @@
 class Tile {
-  constructor() {
-    this.id = 0;
-    this.x = 0;
-    this.y = 0;
+  constructor(value: number, x: number, y: number) {
+    this.value = value;
+    this.x = x;
+    this.y = y;
   }
 
-  id: number;
+  value: number;
   x: number;
   y: number;
 }

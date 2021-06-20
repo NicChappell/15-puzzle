@@ -1,43 +1,55 @@
-import { EventEmitter } from "events";
 import Tile from "./Tile";
+import { shuffle } from "./helpers";
 
-class Game extends EventEmitter {
+class Game {
   constructor() {
-    super();
-    this.board = [];
+    this.board = [
+      [1, 2, 3, 4],
+      [5, 6, 7, 8],
+      [9, 10, 11, 12],
+      [13, 14, 15, 16],
+    ];
     this.moves = 0;
-    this.openSpace = { x: 3, y: 3 };
+    this.openSpace = { x: 4, y: 4 };
     this.timer = 0;
+    this.values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   }
 
-  board: any;
+  board: number[][];
   moves: number;
   openSpace: {
     x: number;
     y: number;
   };
   timer: number;
+  values: number[];
 
-  eventTest = () => {
-    this.emit("event");
-  };
+  newGame = () => {
+    this.values = shuffle(this.values);
 
-  newBoard = () => {
-    this.board = [
-      [1, 2, 3, 4],
-      [5, 6, 7, 8],
-      [9, 10, 11, 12],
-      [13, 14, 15, 16],
-    ];
-  };
+    let counter = 0;
+    const tiles: Tile[] = [];
 
-  reset = () => {
-    this.board = [
-      [1, 2, 3, 4],
-      [5, 6, 7, 8],
-      [9, 10, 11, 12],
-      [13, 14, 15, 16],
-    ];
+    this.board.forEach((row, index) => {
+      const x = index + 1;
+
+      row.forEach((column, index) => {
+        const y = index + 1;
+
+        // return early before final element
+        if (x === 4 && y === 4) return;
+
+        const value = this.values[counter];
+
+        const tile = new Tile(value, x, y);
+
+        counter++;
+
+        tiles.push(tile);
+      });
+    });
+
+    return tiles;
   };
 
   move = (tile: Tile) => {
