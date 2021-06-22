@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { GameContext } from "../../../../contexts";
 import { Tile } from "../../../../game";
 import "./Square.css";
 
@@ -13,6 +14,10 @@ const Square = ({ tile }: ISquare) => {
   console.log("value: ", value);
   console.log("x: ", x);
   console.log("y: ", y);
+
+  // context hooks
+  const game = useContext(GameContext);
+  console.log("**game: ", game);
 
   // state hooks
   const [left, setLeft] = useState<string>();
@@ -55,6 +60,9 @@ const Square = ({ tile }: ISquare) => {
 
   const handleClick = () => {
     console.log(tile);
+
+    // check for open vector
+    const { x: openX, y: openY } = game?.openSpace;
 
     setLeft("75%");
     setTop("75%");

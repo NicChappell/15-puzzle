@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Board, MoveCounter, Timer } from "./components";
+import { GameContext } from "./contexts";
 import { Game, Tile } from "./game";
 import "./App.css";
 
@@ -30,11 +31,13 @@ const App = () => {
   }, [game]);
 
   return (
-    <main id="app">
-      <Board tiles={tiles} />
-      <MoveCounter />
-      <Timer />
-    </main>
+    <GameContext.Provider value={game}>
+      <main id="app">
+        <Board tiles={tiles} />
+        <MoveCounter />
+        <Timer />
+      </main>
+    </GameContext.Provider>
   );
 };
 

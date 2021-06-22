@@ -43,9 +43,9 @@ class Game {
 
         const tile = new Tile(value, x, y);
 
-        counter++;
-
         tiles.push(tile);
+
+        counter++;
       });
     });
 
