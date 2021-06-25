@@ -1,6 +1,14 @@
-import { createContext } from "react";
+import { createContext, Dispatch, SetStateAction } from "react";
 import { Game } from "../game";
 
-const GameContext = createContext<Game | undefined>(undefined);
+interface IGameContext {
+  game: Game;
+  setGame: Dispatch<SetStateAction<Game>>;
+}
+
+const GameContext = createContext<IGameContext>({
+  game: undefined!,
+  setGame: () => {},
+});
 
 export default GameContext;

@@ -1,19 +1,22 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { GameContext } from "../../contexts";
 import "./MoveCounter.css";
 
 const MoveCounter = () => {
+  // context hooks
+  const { game } = useContext(GameContext);
+
   // state hooks
-  const [moveCount, setMoveCount] = useState(0);
-  console.log("moveCount: ", moveCount);
+  const [moves, setMoves] = useState(game.moves);
 
   // effect hooks
   useEffect(() => {
-    setMoveCount(999999);
-  }, []);
+    setMoves(game.moves);
+  }, [game.moves]);
 
   return (
     <div className="move-counter">
-      <p>Move Counter: {0}</p>
+      <p>Move Counter: {moves}</p>
     </div>
   );
 };
